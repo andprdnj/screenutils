@@ -62,6 +62,7 @@ class Screen(object):
     def __init__(self, name, initialize=False):
         self.name = name
         self._id = None
+        self._date = None
         self._status = None
         self.logs = None
         self._logfilename = None
@@ -74,6 +75,12 @@ class Screen(object):
         if not self._id:
             self._set_screen_infos()
         return self._id
+
+    @property
+    def date(self):
+        """return the date created of the screen as string"""
+        self._set_screen_infos()
+        return self._date
 
     @property
     def status(self):
