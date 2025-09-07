@@ -79,7 +79,8 @@ class Screen(object):
     @property
     def date(self):
         """return the date created of the screen as string"""
-        self._set_screen_infos()
+        if not self._date:
+            self._set_screen_infos()
         return self._date
 
     @property
